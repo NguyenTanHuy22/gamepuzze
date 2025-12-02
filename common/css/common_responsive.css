@@ -1,0 +1,83 @@
+@media screen and (min-width: 769px) {
+a[href^="tel:"]{pointer-events: none;}
+.sp{display:none}
+
+
+
+}
+
+@media screen and (min-width: 751px) and (max-width: 1100px){}
+
+/* screen-min:1100px latop - mobile*/
+@media screen and (max-width: 1100px) {
+img{max-width:100%; height: auto;}
+.swap img{width:auto;}
+#wrapper,
+header,
+main,
+footer,
+.inner{width:100%!important;min-width:unset!important}
+.pc{display:none!important}
+
+/*=====================================================
+                      C U S T O M
+======================================================*/
+
+/*============ HEADER ============*/
+.h_box{height:60px}
+.h_inner{padding: 0 10px;}
+.h_left{width: 200px}
+header.show .h_inner{display: flex;}
+
+/*============ Main ============*/
+main{padding-top: 60px;}
+
+.btn_center_box{flex-wrap: wrap;}
+.btn a{padding: 15px}
+
+/* MAIN VISUAL */
+
+/* sec01 */
+/* sec02 */
+/* sec03 */
+/* sec04 */
+/* sec05 */
+/* sec06 */
+/* sec07 */
+/* sec08 */
+
+/*============ FOOTER ============*/
+
+
+/*============ END 1100 ============ */
+
+}
+
+@media screen and (min-width: 768px) and (max-width: 841px){}
+
+/* screen-max:1024px */
+@media screen and (max-width: 1024px) {}
+
+/* screen-max:820px */
+@media screen and (max-width: 820px) {}
+
+/* screen-max:768px */
+@media screen and (max-width: 768px) {}
+
+/* screen-max:460px */
+@media screen and (max-width: 479px) {
+  
+}
+
+/* screen-max: 360px */
+@media screen and (max-width: 360px) {
+
+}
+
+@media screen and (max-width: 320px) {
+html,
+  body {
+    min-width: 320px;
+    overflow-x: hidden;
+  }
+}

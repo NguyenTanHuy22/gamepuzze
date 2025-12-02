@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Huynt v1</title>
+    <!-- FAVICON -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- STYLESHEET -->
+    <link rel="stylesheet" media="all" href="./common/css/common.css">
+    <link rel="stylesheet" media="all" href="./common/css/common_responsive.css">
+    <script src="./common/js/jquery.js"></script>
+</head>
+
+<body id="index">
+    <div id="wrapper">
+        <header></header>
+        <!-- end #header-->
+        <main class="py-8">
+            <div class="container mx-auto px-4">
+                <!-- Start Button -->
+                <div class="btn_box flex items-center justify-center">
+                    <p class="start_btn bg-green-500 text-white text-sm px-4 py-2 rounded shadow hover:shadow-lg cursor-pointer inline-block font-bold transition duration-300 ease-in-out">Bắt đầu</p>
+                </div>
+                <!-- Game Zone -->
+                <div class="game_zone flex flex-col justify-center lg:flex-row gap-6 p-4 rounded-lg mb-20">
+                    <!-- Left Box: Grid Game -->
+                    <div class="box_l shadow lg:w-4/6">
+                        <ul class="game_main grid grid-cols-4 gap-4 bg-gray-50 p-5">
+                            <li class="bg-green-100 text-green-500 rounded-lg aspect-square flex items-center justify-center font-bold text-lg">1</li>
+                            <li class="bg-red-100 text-red-500 rounded-lg aspect-square flex items-center justify-center font-bold text-lg">2</li>
+                            <li class="bg-blue-100 text-blue-500 rounded-lg aspect-square flex items-center justify-center font-bold text-lg">3</li>
+                            <li class="bg-purple-100 text-purple-500 rounded-lg aspect-square flex items-center justify-center font-bold text-lg">4</li>
+                            <li class="bg-pink-100 text-pink-500 rounded-lg aspect-square flex items-center justify-center font-bold text-lg">5</li>
+                            <li class="bg-yellow-100 text-yellow-500 rounded-lg aspect-square flex items-center justify-center font-bold text-lg">6</li>
+                            <li class="bg-indigo-100 text-indigo-500 rounded-lg aspect-square flex items-center justify-center font-bold text-lg">7</li>
+                            <li class="bg-gray-100 text-gray-500 rounded-lg aspect-square flex items-center justify-center font-bold text-lg">8</li>
+                            <li class="bg-emerald-100 text-emerald-500 rounded-lg aspect-square flex items-center justify-center font-bold text-lg">9</li>
+                            <li class="bg-amber-100 text-amber-500 rounded-lg aspect-square flex items-center justify-center font-bold text-lg">10</li>
+                            <li class="bg-lime-100 text-lime-500 rounded-lg aspect-square flex items-center justify-center font-bold text-lg">11</li>
+                            <li class="bg-black text-black-500 rounded-lg aspect-square flex items-center justify-center font-bold text-lg main_move"></li>
+                        </ul>
+                    </div>
+                    <!-- Right Box: Time + Guide -->
+                    <div class="box_r w-full lg:w-1/6 flex flex-col gap-6">
+                        <!-- Time -->
+                        <div class="time_zone p-4 rounded shadow bg-green-100">
+                            <p class="label font-bold center mb-2">Đồng Hồ</p>
+                            <p class="time text-xl font-bold text-center">00:00</p>
+                        </div>
+                        <!-- Guide Buttons -->
+                        <div class="guide_zone bg-white p-4 rounded shadow">
+                            <p class="font-bold mb-2 center">Hướng dẫn di chuyển</p>
+                            <!-- Hướng dẫn di chuyển - Arrow Keys -->
+                            <div class="guide_btn flex flex-col items-center gap-2">
+                                <!-- Nút lên -->
+                                <div class="btn_up bg-gray-200 w-12 h-12 rounded flex items-center justify-center cursor-pointer font-bold">↑</div>
+                                <!-- Nút trái, xuống, phải -->
+                                <div class="flex gap-2">
+                                    <div class="btn_left bg-gray-200 w-12 h-12 rounded flex items-center justify-center cursor-pointer font-bold">←</div>
+                                    <div class="btn_down bg-gray-200 w-12 h-12 rounded flex items-center justify-center cursor-pointer font-bold">↓</div>
+                                    <div class="btn_right bg-gray-200 w-12 h-12 rounded flex items-center justify-center cursor-pointer font-bold">→</div>
+                                </div>
+                            </div>
+                            <!-- Hướng dẫn di chuyển - WASD -->
+                            <div class="guide_btn flex flex-col items-center gap-2 mt-5">
+                                <div class="btn_w bg-gray-200 w-12 h-12 rounded flex items-center justify-center cursor-pointer font-bold">W</div>
+                                <div class="flex gap-2">
+                                    <div class="btn_a bg-gray-200 w-12 h-12 rounded flex items-center justify-center cursor-pointer font-bold">A</div>
+                                    <div class="btn_s bg-gray-200 w-12 h-12 rounded flex items-center justify-center cursor-pointer font-bold">S</div>
+                                    <div class="btn_d bg-gray-200 w-12 h-12 rounded flex items-center justify-center cursor-pointer font-bold">D</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- History Table -->
+                <div class="history_zone overflow-x-auto bg-gray-100 p-4 sm:p-6">
+                    <h3 class="bold center mb-10">Lịch sử lượt chơi</h3>
+                    <table class="min-w-full border-collapse border border-gray-200 history_table">
+                        <thead>
+                            <tr class="bg-gray-300">
+                                <th class="border border-gray-200 px-4 py-2 text-left">#</th>
+                                <th class="border border-gray-200 px-4 py-2 text-left">Bước đi</th>
+                                <th class="border border-gray-200 px-4 py-2 text-left">Thời gian</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white">
+                            <tr>
+                                <td class="border border-gray-200 px-4 py-2"></td>
+                                <td class="border border-gray-200 px-4 py-2"></td>
+                                <td class="border border-gray-200 px-4 py-2"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+        <!-- end #main-->
+        <footer>
+        </footer>
+        <!-- end #footer -->
+    </div>
+    <script src="./common/js/main.js"></script>
+</body>
+
+</html>

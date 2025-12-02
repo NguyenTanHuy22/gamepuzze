@@ -1,0 +1,224 @@
+@charset "UTF-8";
+/* import font from gg font*/
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+/* import font from gg font*/
+
+/*==========================================================================*/
+/*                           Common-Setting                                 */
+/*==========================================================================*/
+/* 基本タグのフォントサイズを指定（12px -> 120% or 1.2em ） */
+h1, h2, h3, h4, h5, h6, input, button, textarea, select, p, blockquote, th, td, pre, address, li, dt, dd {
+font-size: var(--mfont-size);
+-webkit-text-size-adjust: none;
+font-weight: 400;
+}
+html:focus-within {scroll-behavior: smooth;}
+img {vertical-align: middle;max-width: 100%;flex-shrink: 0;height: auto;}
+*,
+::before,
+::after{box-sizing:border-box;outline: none;}
+select { visibility: visible !important; }
+a{transition:all ease 0.3s;text-decoration:none;}
+a[href^="tel:"] {word-break: keep-all;}
+/*==========================================================================*/
+/*                               Container                                  */
+/*==========================================================================*/
+html{background:#fff}
+body{color:var(--txt);-webkit-text-size-adjust:none;min-width:320px;font-family: "Roboto", sans-serif;font-size: var(--mfont-size);margin: 0}
+table {width: 100%}
+h1,h2,h3,h4,h5,h6{line-height: 1.5;margin: 0}
+p,
+dd,
+dt,
+li,
+th,
+td,
+address{line-height: 2em;letter-spacing: 0;margin: 0}
+p {margin: 0 0 1.5em;font-size: var(--mfont-size);}
+p:last-child{margin-bottom: 0}
+ul{padding: 0;margin: 0;list-style-type: none;}
+
+.bold{font-weight: bold;}
+.left{text-align:left}
+.right{text-align: right;}
+.auto{margin-left: auto; margin-right: auto;}
+.red{color: var(--red);}
+.txt_line{text-decoration: underline;}
+.m0a{display: block;margin: 0 auto;}
+.f_big{font-size: 150%;}
+.f_sm{font-size: 80%;}
+.d-flex {display: flex; }
+.justify-between {justify-content: space-between; }
+.justify-center {justify-content: center; }
+.align-center {align-items: center;}
+.align-start {align-items: flex-start; }
+.center, .text-center {text-align: center; }
+.text-left {text-align: left; }
+.text-right {text-align: right; }
+
+/*Card box*/
+.cards {display: flex; gap: 20px; align-items: start; flex-wrap: wrap;justify-content: center;}
+  /* Card */
+  .card {background: #fff; border: 1px solid #e6e9ee; border-radius: 8px; overflow: hidden; box-shadow: 0 6px 18px rgba(20,30,40,0.05); transition: transform .14s ease, box-shadow .14s ease; display: flex; flex-direction: column; height: 100%; position: relative; width: 30%}
+  .card a::before{content: '';position: absolute;width: 100%;height: 100%;left: 0;top: 0;}
+  .card:hover {transform: translateY(-6px); box-shadow: 0 18px 40px rgba(20,30,40,0.08); }
+  .card__thumb {width:100%; height:160px; background:#eee; display:block; overflow:hidden; }
+  .card__thumb img {width:100%; height:100%; object-fit:cover; display:block; }
+  .card__body {padding:16px; display:flex; flex-direction:column; gap:10px; flex:1 1 auto; }
+  .card__title {margin:0; font-size:16px; color:#0b63b3; text-decoration:none; }
+  .card__desc {margin:0; color:#666; font-size:13px; line-height:1.4; flex:1 1 auto; }
+  .card__cta {margin-top:8px; align-self:flex-start; padding:8px 12px; background:#0b63b3; color:#fff; text-decoration:none; border-radius:6px; font-size:13px; }
+
+.news-blog-box {display: flex; align-items: start;gap: 40px}
+/* left column */
+.nb-left {text-align: center; width: 30%}
+.nb-left h2 {font-size: 48px; font-weight: 800; line-height: 1.1; margin: 0 0 40px; }
+.nb-left button {display: block; width: 100%; border: none; border-radius: 30px; font-size: 18px; font-weight: bold; padding: 14px 0; cursor: pointer; margin-bottom: 15px; transition: opacity 0.2s ease; }
+.btn-news {background: #000; color: #fff; }
+.btn-blog {background: #d61b2b; color: #fff; }
+.nb-left button:hover {opacity: 0.8; }
+/* right column */
+.nb-right .list-post {margin-bottom: 50px; }
+.nb-right h3 {font-size: 22px; font-weight: bold; border-bottom: 2px dotted #000; padding-bottom: 6px; margin-bottom: 20px; }
+.post-item {display: flex; align-items: center; gap: 15px; margin-bottom: 12px; }
+.post-date {font-size: 14px; color: #333; width: 90px; flex-shrink: 0; margin-bottom: 0}
+.post-tag {font-size: 13px; color: #fff; font-weight: bold; border-radius: 20px; padding: 6px 14px; flex-shrink: 0; margin-bottom: 0}
+.tag-blog {background: #d61b2b; }
+.tag-news {background: #000; }
+.post-title {font-size: 15px; color: #000; text-decoration: none; line-height: 1.4;}
+.post-title:hover {text-decoration: underline; }
+
+:root {
+  --font-main: "Roboto", sans-serif;
+  --font-title: "Bebas Neue", sans-serif;
+  --txt: #000;     
+  --mcolor: #003b7d;
+  --scolor: #999999; 
+  --site_size: 1240px;
+  --mfont-size: 16px;
+  --border-color: red;
+  
+  --gray: #e9e9e9;
+}
+
+#wrapper{}
+.inner{width: var(--site_size);margin:0 auto;position:relative;max-width: 100%;padding: 0 20px;}
+.container {max-width: 1240px; padding: 0 20px; margin: 0 auto; transition: 0.2s; }
+
+.roboto{font-family: var(--font-main);}
+.bebas{font-family: var(--font-title);}
+
+/*==========================================================
+                       H E A D E R  
+==========================================================*/
+header{position: absolute; z-index: 10;transition: .3s;top: 0;left: 0;width: 100%}
+header.show{position: fixed;top: 0;left: 0;width: 100%;animation: slideDown 0.35s ease-out;}
+header.show .h_inner{display: none;}
+header.show .h_box{box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);}
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+.h_box{width:100%;background-color: #fff;}
+.h_inner{display:flex;justify-content:space-between;align-items: center;height: 100%;margin-bottom: 30px;max-width: 1920px}
+.h_right{display: flex;align-items: center;}
+#logo{width: 200px}
+
+.h_contact{display: flex;align-items: center;}
+.h_contact > p{margin-bottom: 0;}
+.h_contact > p:not(:last-child){margin-right: 20px;}
+.h_contact_mail a{color:#FFF;font-weight: bold;text-align: center;background-color:var(--mcolor);display: flex;justify-content: center;align-items: center;width: 250px;height: 60px;position: relative;border-radius: 50px}
+.h_contact_mail a span{position: relative; z-index: 2;font-size: 20px;display: inline-block; padding-left: 30px;}
+.h_contact_mail a span::before{content: ''; position: absolute; width: 20px; height: 20px; left: 0; top: calc(50% - 10px); background: url('../images/ic_h_mail.png') no-repeat center /cover;}
+
+/* HAMBUGER BUTTON */
+.hamburger{font:inherit;display:block;overflow:visible;margin:0;padding:10px 8px 5px;cursor:pointer;transition-timing-function:linear;transition-duration:.15s;transition-property:opacity,filter;text-transform:none;color:inherit;border:0}
+.hamburger-box{position:relative;display:inline-block;width:35px;height:24px}
+.hamburger-inner{top:50%;display:block;margin-top:-2px}
+.hamburger-inner,
+.hamburger-inner::after,
+.hamburger-inner::before{position:absolute;width:35px;height:2px;transition:all ease 0.15s;background-color:#000}
+.hamburger-inner::after,
+.hamburger-inner::before{display:block;content:""}
+.hamburger-inner::before{top:-10px}
+.hamburger-inner::after{bottom:-10px}
+.hamburger--3dxy .hamburger-box{perspective:80px}
+.hamburger--3dxy .hamburger-inner{transition:transform .15s cubic-bezier(0.645,0.045,0.355,1),background-color 0 cubic-bezier(0.645,0.045,0.355,1) .1s}
+.hamburger--3dxy .hamburger-inner::after,
+.hamburger--3dxy .hamburger-inner::before{transition:transform cubic-bezier(0.645,0.045,0.355,1) .1s}
+.hamburger--3dxy.is_active .hamburger-inner{transform:rotateX(180deg) rotateY(180deg);background-color:transparent!important}
+.hamburger--3dxy.is_active .hamburger-inner::before{transform:translate3d(0,10px,0) rotate(45deg)}
+.hamburger--3dxy.is_active .hamburger-inner::after{transform:translate3d(0,-10px,0) rotate(-45deg)}
+
+/*==========================================================
+                  M A I N    V I S U A L
+==========================================================*/
+main{position: relative;padding-top: 85px;z-index: 2;}
+.mv{padding: 0}
+.mv_txt{position: absolute;width: 100%;height: 100%;left: 0;top: 0;display: flex;justify-content: center;align-items: center;z-index: 2}
+.mv_txt h1{font-size: 25px;text-align: center;}
+.swiper-slide img{width: 100%}
+
+/*==========================================================
+                M A I N    C O N T E N T
+==========================================================*/
+/* DEFAULT TITLE */
+.ttl{text-align: center;font-weight: bold;}
+.ttl span{display: block;}
+.ttl .ja{font-size: 32px;}
+.ttl .en{font-size: 16px;}
+.s-title {font-size: 28px;}
+
+.sub_ttl{font-size: 26px;font-weight: 700;text-align: center;}
+
+.btn_center_box{gap: 20px;margin-bottom: 30px;display: flex;justify-content: center;align-items: center;}
+.btn_center_box .btn{margin-bottom: 0}
+.btn a {display: flex; align-items: center; position: relative; color: #fff; background-color: #599f1b; width: fit-content; padding: 12px 65px; z-index: 1; }
+.btn a::before {position: absolute; content: ""; top: 0; left: 0; right: 0; bottom: 0; height: 100%; background-color: #333; z-index: -1; transition: 0.3s; }
+.btn a:hover::before {height: 0; }
+.btn a span {font-size: 15px; transition: 0.25s; font-weight: 500; position: relative; z-index: 2; }
+.btn_100{width: 100%}
+.btn_100 a{width: 100%;text-align: center;justify-content: center;}
+
+section{padding: 40px 0;}
+
+/*==================== SEC01 ===================*/
+
+
+
+/*==================== SEC02 ===================*/
+
+
+
+/*==================== SEC03 ===================*/
+
+
+
+/*==================== SEC04 ===================*/
+
+
+
+/*==================== SEC05 ===================*/
+
+
+
+/*==================== SEC06 ===================*/
+
+
+
+/*==================== SEC07 ===================*/
+
+
+
+/*==================== SEC08 ===================*/
+
+
+
+/*==========================================================
+                        F O O T E R
+==========================================================*/
