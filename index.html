@@ -21,13 +21,16 @@
         <main class="py-8">
             <div class="container mx-auto px-4">
                 <!-- Start Button -->
-                <div class="btn_box flex items-center justify-center">
-                    <p class="start_btn bg-green-500 text-white text-sm px-4 py-2 rounded shadow hover:shadow-lg cursor-pointer inline-block font-bold transition duration-300 ease-in-out">Bắt đầu</p>
+                <div class="game_zone_top">
+                    <div class="btn_box flex items-center justify-center">
+                        <p class="start_btn bg-green-500 text-white text-sm px-4 py-2 rounded shadow hover:shadow-lg cursor-pointer inline-block font-bold transition duration-300 ease-in-out">Bắt đầu</p>
+                    </div>
+                    <div class="you-win-box"><p class="you-win">You Win !</p></div>
                 </div>
                 <!-- Game Zone -->
                 <div class="game_zone flex flex-col justify-center lg:flex-row gap-6 p-4 rounded-lg mb-20">
                     <!-- Left Box: Grid Game -->
-                    <div class="box_l shadow lg:w-4/6">
+                    <div class="box_l shadow lg:w-3/6">
                         <ul class="game_main grid grid-cols-4 gap-4 bg-gray-50 p-5">
                             <li class="bg-green-100 text-green-500 rounded-lg aspect-square flex items-center justify-center font-bold text-lg">1</li>
                             <li class="bg-red-100 text-red-500 rounded-lg aspect-square flex items-center justify-center font-bold text-lg">2</li>
@@ -51,7 +54,7 @@
                             <p class="time text-xl font-bold text-center">00:00</p>
                         </div>
                         <!-- Guide Buttons -->
-                        <div class="guide_zone bg-white p-4 rounded shadow">
+                        <div class="guide_zone bg-gray-100 p-4 rounded shadow">
                             <p class="font-bold mb-2 center">Hướng dẫn di chuyển</p>
                             <!-- Hướng dẫn di chuyển - Arrow Keys -->
                             <div class="guide_btn flex flex-col items-center gap-2">
