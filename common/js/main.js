@@ -80,7 +80,7 @@ $(document).ready(function() {
         if (win) {
             saveHistory();
             clearInterval(timer);
-            alert("Chúc mừng! Bạn đã chiến thắng.");
+            $('.you-win').addClass('active');
             resetGame();
         }
     }
