@@ -186,4 +186,24 @@ $(document).ready(function() {
                 break;
         }
     });
+
+    $('.btn_up').on('click', function() {
+        if (!gameStarted) return;
+        moveEmpty('up');
+    });
+
+    $('.btn_down').on('click', function() {
+        if (!gameStarted) return;
+        moveEmpty('down');
+    });
+
+    $('.btn_left').on('click', function() {
+        if (!gameStarted) return;
+        moveEmpty('left');
+    });
+
+    $('.btn_right').on('click', function() {
+        if (!gameStarted) return;
+        moveEmpty('right');
+    });
 });
