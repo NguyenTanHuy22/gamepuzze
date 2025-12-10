@@ -207,49 +207,78 @@ $(document).ready(function() {
         moveEmpty('right');
     });
 
-    // Điều khiển bằng vuốt trên mobile
-    var touchStartX = 0;
-    var touchStartY = 0;
-    var touchEndX = 0;
-    var touchEndY = 0;
+    // === Swipe control (mobile) - replacement ===
+    (function() {
+        var startX = 0,
+            startY = 0;
+        var minDistance = 30; // ngưỡng px để coi là vuốt
 
-    $('.game_main').on('touchstart', function(e) {
-        var touch = e.originalEvent.touches[0];
-        touchStartX = touch.clientX;
-        touchStartY = touch.clientY;
-    });
+        var gameEl = document.querySelector('.game_main');
+        if (!gameEl) return;
 
-    $('.game_main').on('touchmove', function(e) {
-        var touch = e.originalEvent.touches[0];
-        touchEndX = touch.clientX;
-        touchEndY = touch.clientY;
-    });
-
-    $('.game_main').on('touchend', function() {
-        if (!gameStarted) return;
-
-        var dx = touchEndX - touchStartX;
-        var dy = touchEndY - touchStartY;
-
-        // Ngưỡng vuốt
-        var threshold = 30;
-
-        // Vuốt ngang
-        if (Math.abs(dx) > Math.abs(dy)) {
-            if (dx > threshold) {
-                moveEmpty('right');
-            } else if (dx < -threshold) {
-                moveEmpty('left');
+        // Helper: add native event with passive: false so we can call preventDefault
+        function addTouchListener(el, type, handler) {
+            try {
+                el.addEventListener(type, handler, { passive: false });
+            } catch (e) {
+                // fallback cho trình duyệt cổ
+                el.addEventListener(type, handler, false);
             }
         }
-        // Vuốt dọc
-        else {
-            if (dy > threshold) {
-                moveEmpty('down');
-            } else if (dy < -threshold) {
-                moveEmpty('up');
+
+        addTouchListener(gameEl, 'touchstart', function(e) {
+            if (!gameStarted) return;
+            var t = e.changedTouches[0];
+            startX = t.clientX;
+            startY = t.clientY;
+
+            // chặn trang cuộn trong khi chơi
+            e.preventDefault();
+            document.body.classList.add('no-scroll');
+        });
+
+        addTouchListener(gameEl, 'touchmove', function(e) {
+            if (!gameStarted) return;
+            // chặn trang cuộn khi đang xử lý
+            e.preventDefault();
+        });
+
+        addTouchListener(gameEl, 'touchend', function(e) {
+            if (!gameStarted) return;
+            document.body.classList.remove('no-scroll');
+
+            var t = e.changedTouches[0];
+            var dx = t.clientX - startX;
+            var dy = t.clientY - startY;
+
+            // Nếu người dùng chỉ chạm nhẹ (tap) thì bỏ qua
+            if (Math.abs(dx) < minDistance && Math.abs(dy) < minDistance) {
+                return;
             }
-        }
-    });
+
+            // xác định hướng vuốt
+            if (Math.abs(dx) > Math.abs(dy)) {
+                // ngang
+                if (dx > 0) {
+                    moveEmpty('right');
+                } else {
+                    moveEmpty('left');
+                }
+            } else {
+                // dọc
+                if (dy > 0) {
+                    moveEmpty('down');
+                } else {
+                    moveEmpty('up');
+                }
+            }
+        });
+
+        // trường hợp người rời vùng (cancel)
+        addTouchListener(gameEl, 'touchcancel', function(e) {
+            document.body.classList.remove('no-scroll');
+        });
+    })();
+
 
 });
