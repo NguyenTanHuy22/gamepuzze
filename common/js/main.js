@@ -206,4 +206,50 @@ $(document).ready(function() {
         if (!gameStarted) return;
         moveEmpty('right');
     });
+
+    // Điều khiển bằng vuốt trên mobile
+    var touchStartX = 0;
+    var touchStartY = 0;
+    var touchEndX = 0;
+    var touchEndY = 0;
+
+    $('.game_main').on('touchstart', function(e) {
+        var touch = e.originalEvent.touches[0];
+        touchStartX = touch.clientX;
+        touchStartY = touch.clientY;
+    });
+
+    $('.game_main').on('touchmove', function(e) {
+        var touch = e.originalEvent.touches[0];
+        touchEndX = touch.clientX;
+        touchEndY = touch.clientY;
+    });
+
+    $('.game_main').on('touchend', function() {
+        if (!gameStarted) return;
+
+        var dx = touchEndX - touchStartX;
+        var dy = touchEndY - touchStartY;
+
+        // Ngưỡng vuốt
+        var threshold = 30;
+
+        // Vuốt ngang
+        if (Math.abs(dx) > Math.abs(dy)) {
+            if (dx > threshold) {
+                moveEmpty('right');
+            } else if (dx < -threshold) {
+                moveEmpty('left');
+            }
+        }
+        // Vuốt dọc
+        else {
+            if (dy > threshold) {
+                moveEmpty('down');
+            } else if (dy < -threshold) {
+                moveEmpty('up');
+            }
+        }
+    });
+
 });
